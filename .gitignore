@@ -4,3 +4,7 @@
 .idea
 .project
 .classpath
+/bin/
+
+# oauth 설정정보
+application-oauth.properties
