@@ -4,6 +4,7 @@
 .idea
 .project
 .classpath
+.settings
 /bin/
 
 # oauth 설정정보
