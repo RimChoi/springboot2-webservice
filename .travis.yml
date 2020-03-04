@@ -32,13 +32,12 @@ deploy:
     acl: private # zip file 접근을 private으로
     local_dir: deploy # before_deploy에서 생성한디렉토리
     wait-untill-deployed: true
+
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
-
     bucket: metamong-springboot-build # S3 BUCKET
     key: springboot2-webservice.zip
-
     bundle_type: zip
     application: metamong-springboot2-webservice # 웹 콘솔에서 등록한 CodeDeploy 애플리케이션
     deployment_group: metamong-springboot2-webservice-group
