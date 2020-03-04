@@ -17,6 +17,22 @@ cache:
 
 script: "./gradlew clean build"
 
+before_deploy:
+  - zip -r springboot2-webservice *
+  - mkdir -p deploy
+  - mv springboot2-webservice.zip deploy/springboot2-webservice.zip
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY # Travis repo setting value
+    secret_access_key: $AWS_SECRET_KEY # Travis repo setting value
+    bucket: metamong-springboot-build
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private # zip file 접근을 private으로
+    local_dir: deploy # before_deploy에서 생성한디렉토리
+    wait-untill-deployed: true
+
 # CI 실행 완료 시 메일로 알림
 notifications:
   email:
