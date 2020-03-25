@@ -13,8 +13,8 @@ permissions:
 
 hooks:
   AfterInstall:
-    - location: stop.sh #Nginx와 연결되어 있지 않은 스프링부트를 종료.
-      timeout:60
+    - location: stop.sh # Nginx와 연결되어 있지 않은 스프링부트를 종료.
+      timeout: 60
       runas: ec2-user
   ApplicationStart:
     - location: deploy.sh # Nginx와 연결되어 있지 않은 Port로 새 버전의 스프링부트를 시작.
